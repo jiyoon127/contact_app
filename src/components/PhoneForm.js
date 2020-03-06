@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class PhoneForm extends Component {
+    input = React.createRef()
 
     state = {
         name: '',
@@ -19,7 +20,8 @@ class PhoneForm extends Component {
         this.setState({
             name:'',
             number:'',
-        })
+        });
+        this.input.current.focus();
     }
 
 
@@ -31,6 +33,7 @@ class PhoneForm extends Component {
                     placeholder = "name" 
                     onChange={this.handleChange} 
                     value={this.state.name}
+                    ref = {this.input}
                 /> {/*input에서 값이 변할 때 마다 함수 호출*/}
 
                 <input 
@@ -40,7 +43,7 @@ class PhoneForm extends Component {
                     value = {this.state.number}
                 />
 
-                <button type="submit">summit</button>
+                <button type="submit">submit</button>
 
             </form>
         );
